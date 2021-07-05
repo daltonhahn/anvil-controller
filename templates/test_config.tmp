@@ -1,0 +1,11 @@
+---
+- key: {GKEY}
+  cacert:
+  - /root/anvil/config/certs/0/server1.crt
+  - /root/anvil/config/certs/0/server2.crt
+  - /root/anvil/config/certs/0/server3.crt
+  - /root/anvil/config/certs/0/server4.crt
+  - /root/anvil/config/certs/0/server5.crt
+  tlscert: /root/anvil/config/certs/0/{NAME}.crt
+  tlskey: /root/anvil/config/certs/0/{NAME}.key
+  tokens:
