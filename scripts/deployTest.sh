@@ -36,6 +36,7 @@ do
 		docker run --privileged --name server${i} --hostname server${i} -it -d --network=dev --ip 172.18.0.$ip $(docker build -f Dockerfile_server${i} -q .)
 		ip=$((ip+1))
 		cd scripts
+		sleep 2
 	else
 		sed -i '' "s|{STARTUP}|server_startup.sh|g" ../Dockerfile_server${i}
 		#sed -i "s|{STARTUP}|server_startup.sh|g" ../Dockerfile_server${i}
