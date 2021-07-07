@@ -1,0 +1,15 @@
+FROM anvil:rot-scale-quorum
+WORKDIR /root/anvil
+
+COPY art0/acls.yaml /root/anvil/config/base_acls.yaml
+COPY templates/manifest.tmp /root/anvil/config/manifest.yaml
+COPY configs/{NAME}_test_config.yaml /root/anvil/config/test_config.yaml
+COPY art0/gossip.key /root/anvil/config/gossip/0/gossip.key
+
+COPY conf0/. /root/anvil/config/certs/0/.
+COPY conf0/{NAME}.key /root/anvil/config/certs/0/.
+COPY art0/{NAME}/acl.yaml /root/anvil/config/acls/0/.
+
+COPY templates/{STARTUP} /root/.
+
+ENTRYPOINT ["/bin/bash", "/root/{STARTUP}"]

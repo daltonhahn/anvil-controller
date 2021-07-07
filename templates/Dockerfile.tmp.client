@@ -1,0 +1,13 @@
+FROM anvil:rot-scale-client
+WORKDIR /root/anvil
+
+COPY configs/{NAME}_test_config.yaml /root/anvil/config/test_config.yaml
+COPY art0/gossip.key /root/anvil/config/gossip/0/gossip.key
+
+COPY art0/{NAME}/. /root/anvil/config/certs/0/.
+COPY art0/{NAME}/acl.yaml /root/anvil/config/acls/0/.
+
+COPY templates/{STARTUP} /root/.
+
+RUN rm /root/anvil/config/certs/0/acl.yaml
+ENTRYPOINT ["/bin/bash", "/root/{STARTUP}"]
