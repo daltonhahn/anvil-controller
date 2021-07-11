@@ -1,4 +1,4 @@
-FROM anvil:rot-scale-client
+FROM daltonhahn/anvil:rot-scale-client
 WORKDIR /root/anvil
 
 COPY configs/{NAME}_test_config.yaml /root/anvil/config/test_config.yaml

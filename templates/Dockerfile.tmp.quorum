@@ -1,4 +1,4 @@
-FROM anvil:rot-scale-quorum
+FROM daltonhahn/anvil:rot-scale-quorum
 WORKDIR /root/anvil
 
 COPY art0/acls.yaml /root/anvil/config/base_acls.yaml

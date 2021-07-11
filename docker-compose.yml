@@ -1,0 +1,185 @@
+version: '1'
+
+services: 
+  s1:
+    container_name: server1
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile_server1
+    hostname: server1
+    networks:
+      - dev
+  s2:
+    container_name: server2
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile_server2
+    depends_on:
+      s1:
+        condition: service_started
+    hostname: server2
+    networks:
+      - dev
+  s3:
+    container_name: server3
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile_server3
+    depends_on:
+      s1:
+        condition: service_started
+    hostname: server3
+    networks:
+      - dev
+  s4:
+    container_name: server4
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile_server4
+    depends_on:
+      s1:
+        condition: service_started
+    hostname: server4
+    networks:
+      - dev
+  s5:
+    container_name: server5
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile_server5
+    depends_on:
+      s1:
+        condition: service_started
+    hostname: server5
+    networks:
+      - dev
+  c1:
+    container_name: client1
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile_client1
+    depends_on:
+      s1:
+        condition: service_started
+    hostname: client1
+    networks:
+      - dev
+  c2:
+    container_name: client2
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile_client2
+    depends_on:
+      s1:
+        condition: service_started
+    hostname: client2
+    networks:
+      - dev
+  c3:
+    container_name: client3
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile_client3
+    depends_on:
+      s1:
+        condition: service_started
+    hostname: client3
+    networks:
+      - dev
+  c4:
+    container_name: client4
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile_client4
+    depends_on:
+      s1:
+        condition: service_started
+    hostname: client4
+    networks:
+      - dev
+  c5:
+    container_name: client5
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile_client5
+    depends_on:
+      s1:
+        condition: service_started
+    hostname: client5
+    networks:
+      - dev
+  c6:
+    container_name: client6
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile_client6
+    depends_on:
+      s1:
+        condition: service_started
+    hostname: client6
+    networks:
+      - dev
+  c7:
+    container_name: client7
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile_client7
+    depends_on:
+      s1:
+        condition: service_started
+    hostname: client7
+    networks:
+      - dev
+  c8:
+    container_name: client8
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile_client8
+    depends_on:
+      s1:
+        condition: service_started
+    hostname: client8
+    networks:
+      - dev
+  c9:
+    container_name: client9
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile_client9
+    depends_on:
+      s1:
+        condition: service_started
+    hostname: client9
+    networks:
+      - dev
+  c10:
+    container_name: client10
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile_client10
+    depends_on:
+      s1:
+        condition: service_started
+    hostname: client10
+    networks:
+      - dev
+
+networks:
+    dev:
+        ipam:
+            driver: default

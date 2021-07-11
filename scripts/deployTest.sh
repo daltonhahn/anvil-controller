@@ -3,7 +3,6 @@
 docker stop $(docker ps -a -q) > /dev/null 2>&1
 docker rm $(docker ps -a -q) > /dev/null 2>&1
 
-ip=2
 
 read -p "Client nodes: " numClients
 
@@ -32,9 +31,7 @@ do
 		#sed -i "s|{STARTUP}|leader_startup.sh|g" ../Dockerfile_server${i}
 
 		cd ..
-		#docker run --privileged --hostname server${i} -it -d --network=dev --ip 172.18.0.$ip $(docker build -f Dockerfile_server${i} -q .) &
-		docker run --privileged --name server${i} --hostname server${i} -it -d --network=dev --ip 172.18.0.$ip $(docker build -f Dockerfile_server${i} -q .)
-		ip=$((ip+1))
+		docker run --privileged --name server${i} --hostname server${i} -it -d --network=dev $(docker build -f Dockerfile_server${i} -q .)
 		cd scripts
 		sleep 2
 	else
@@ -42,14 +39,11 @@ do
 		#sed -i "s|{STARTUP}|server_startup.sh|g" ../Dockerfile_server${i}
 
 		cd ..
-		#docker run --privileged --hostname server${i} -it -d --network=dev --ip 172.18.0.$ip $(docker build -f Dockerfile_server${i} -q .) &
-		docker run --privileged --name server${i} --hostname server${i} -it -d --network=dev --ip 172.18.0.$ip $(docker build -f Dockerfile_server${i} -q .) &
-		ip=$((ip+1))
+		docker run --privileged --name server${i} --hostname server${i} -it -d --network=dev $(docker build -f Dockerfile_server${i} -q .) &
 		cd scripts
 	fi
 done
 
-ip=7
 for i in $(seq 1 $numClients)
 do
 	cp -f ../templates/test_config.tmp ../configs/client${i}_test_config.yaml
@@ -72,8 +66,6 @@ do
 	#sed -i "s|{STARTUP}|client_startup.sh|g" ../Dockerfile_client${i}
 
 	cd ..
-	#docker run --privileged --hostname client${i} -it -d --network=dev --ip 172.18.0.$ip $(docker build -f Dockerfile_client${i} -q .) &
-	docker run --privileged --name client${i} --hostname client${i} -it -d --network=dev --ip 172.18.0.$ip $(docker build -f Dockerfile_client${i} -q .) &
-	ip=$((ip+1))
+	docker run --privileged --name client${i} --hostname client${i} -it -d --network=dev $(docker build -f Dockerfile_client${i} -q .) &
 	cd scripts
 done
