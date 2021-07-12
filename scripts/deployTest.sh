@@ -31,7 +31,7 @@ do
 		#sed -i "s|{STARTUP}|leader_startup.sh|g" ../Dockerfile_server${i}
 
 		cd ..
-		docker run --privileged --name server${i} --hostname server${i} -it -d --network=dev $(docker build -f Dockerfile_server${i} -q .)
+		#docker run --privileged --name server${i} --hostname server${i} -it -d --network=dev $(docker build -f Dockerfile_server${i} -q .)
 		cd scripts
 		sleep 2
 	else
@@ -39,7 +39,7 @@ do
 		#sed -i "s|{STARTUP}|server_startup.sh|g" ../Dockerfile_server${i}
 
 		cd ..
-		docker run --privileged --name server${i} --hostname server${i} -it -d --network=dev $(docker build -f Dockerfile_server${i} -q .) &
+		#docker run --privileged --name server${i} --hostname server${i} -it -d --network=dev $(docker build -f Dockerfile_server${i} -q .) &
 		cd scripts
 	fi
 done
@@ -66,6 +66,6 @@ do
 	#sed -i "s|{STARTUP}|client_startup.sh|g" ../Dockerfile_client${i}
 
 	cd ..
-	docker run --privileged --name client${i} --hostname client${i} -it -d --network=dev $(docker build -f Dockerfile_client${i} -q .) &
+	#docker run --privileged --name client${i} --hostname client${i} -it -d --network=dev $(docker build -f Dockerfile_client${i} -q .) &
 	cd scripts
 done

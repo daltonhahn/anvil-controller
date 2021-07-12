@@ -16,6 +16,11 @@ nodes:
   - client8
   - client9
   - client10
+  - client11
+  - client12
+  - client13
+  - client14
+  - client15
 svcmap:
   -
     node: server1
@@ -105,5 +110,35 @@ svcmap:
     node: client10
     svc: rotation
     tokname: c10r
+    valid:
+      - rotation
+  -
+    node: client11
+    svc: rotation
+    tokname: c11r
+    valid:
+      - rotation
+  -
+    node: client12
+    svc: rotation
+    tokname: c12r
+    valid:
+      - rotation
+  -
+    node: client13
+    svc: rotation
+    tokname: c13r
+    valid:
+      - rotation
+  -
+    node: client14
+    svc: rotation
+    tokname: c14r
+    valid:
+      - rotation
+  -
+    node: client15
+    svc: rotation
+    tokname: c15r
     valid:
       - rotation

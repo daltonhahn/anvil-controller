@@ -12,7 +12,7 @@ done
 
 echo -e "nodes:" >> manifest.tmp
 
-for i in {1..10}
+for i in {1..15}
 do
 	echo -e "  - client${i}" >> manifest.tmp
 done
@@ -29,7 +29,7 @@ do
 	echo -e "      - rotation" >> manifest.tmp
 done
 
-for i in {1..10}
+for i in {1..15}
 do
 	echo -e "  -" >> manifest.tmp
 	echo -e "    node: client${i}" >> manifest.tmp

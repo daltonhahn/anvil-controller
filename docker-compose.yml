@@ -3,6 +3,7 @@ version: '1'
 services: 
   s1:
     container_name: server1
+    privileged: true
     tty: true
     build:
       context: .
@@ -12,6 +13,7 @@ services:
       - dev
   s2:
     container_name: server2
+    privileged: true
     tty: true
     build:
       context: .
@@ -24,6 +26,7 @@ services:
       - dev
   s3:
     container_name: server3
+    privileged: true
     tty: true
     build:
       context: .
@@ -36,6 +39,7 @@ services:
       - dev
   s4:
     container_name: server4
+    privileged: true
     tty: true
     build:
       context: .
@@ -48,6 +52,7 @@ services:
       - dev
   s5:
     container_name: server5
+    privileged: true
     tty: true
     build:
       context: .
@@ -60,6 +65,7 @@ services:
       - dev
   c1:
     container_name: client1
+    privileged: true
     tty: true
     build:
       context: .
@@ -72,6 +78,7 @@ services:
       - dev
   c2:
     container_name: client2
+    privileged: true
     tty: true
     build:
       context: .
@@ -84,6 +91,7 @@ services:
       - dev
   c3:
     container_name: client3
+    privileged: true
     tty: true
     build:
       context: .
@@ -96,6 +104,7 @@ services:
       - dev
   c4:
     container_name: client4
+    privileged: true
     tty: true
     build:
       context: .
@@ -108,6 +117,7 @@ services:
       - dev
   c5:
     container_name: client5
+    privileged: true
     tty: true
     build:
       context: .
@@ -120,6 +130,7 @@ services:
       - dev
   c6:
     container_name: client6
+    privileged: true
     tty: true
     build:
       context: .
@@ -132,6 +143,7 @@ services:
       - dev
   c7:
     container_name: client7
+    privileged: true
     tty: true
     build:
       context: .
@@ -144,6 +156,7 @@ services:
       - dev
   c8:
     container_name: client8
+    privileged: true
     tty: true
     build:
       context: .
@@ -156,6 +169,7 @@ services:
       - dev
   c9:
     container_name: client9
+    privileged: true
     tty: true
     build:
       context: .
@@ -168,6 +182,7 @@ services:
       - dev
   c10:
     container_name: client10
+    privileged: true
     tty: true
     build:
       context: .
@@ -176,6 +191,71 @@ services:
       s1:
         condition: service_started
     hostname: client10
+    networks:
+      - dev
+  c11:
+    container_name: client11
+    privileged: true
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile_client11
+    depends_on:
+      s1:
+        condition: service_started
+    hostname: client11
+    networks:
+      - dev
+  c12:
+    container_name: client12
+    privileged: true
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile_client12
+    depends_on:
+      s1:
+        condition: service_started
+    hostname: client12
+    networks:
+      - dev
+  c13:
+    container_name: client13
+    privileged: true
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile_client13
+    depends_on:
+      s1:
+        condition: service_started
+    hostname: client13
+    networks:
+      - dev
+  c14:
+    container_name: client14
+    privileged: true
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile_client14
+    depends_on:
+      s1:
+        condition: service_started
+    hostname: client14
+    networks:
+      - dev
+  c15:
+    container_name: client15
+    privileged: true
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile_client15
+    depends_on:
+      s1:
+        condition: service_started
+    hostname: client15
     networks:
       - dev
 
