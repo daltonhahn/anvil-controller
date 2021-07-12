@@ -5,7 +5,7 @@ read -p "Client nodes: " numClients
 cd ..
 echo -n > docker-compose.yml
 
-echo -e 'version "3"' >> docker-compose.yml
+echo -e 'version: "3"' >> docker-compose.yml
 echo -e 'services:' >> docker-compose.yml
 echo -e '  s1:\n    container_name: server1\n    privileged: true' >> docker-compose.yml
 echo -e '    tty: true\n    build:\n      context: .' >> docker-compose.yml
