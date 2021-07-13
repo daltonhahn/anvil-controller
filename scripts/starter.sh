@@ -4,6 +4,7 @@ read -p "Client nodes: " numClients
 
 cd ..
 docker-compose start s1
+sleep 5
 
 SList="s2 s3 s4 s5"
 
