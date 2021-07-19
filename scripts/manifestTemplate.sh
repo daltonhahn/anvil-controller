@@ -1,5 +1,7 @@
 #!/bin/bash
 
+read -p "Number of clients: " numClients
+
 echo -n > manifest.tmp
 
 echo -e "---" >> manifest.tmp
@@ -12,7 +14,7 @@ done
 
 echo -e "nodes:" >> manifest.tmp
 
-for i in {1..15}
+for i in $(seq 1 $numClents)
 do
 	echo -e "  - client${i}" >> manifest.tmp
 done
@@ -29,7 +31,7 @@ do
 	echo -e "      - rotation" >> manifest.tmp
 done
 
-for i in {1..15}
+for i in $(seq 1 $numClents)
 do
 	echo -e "  -" >> manifest.tmp
 	echo -e "    node: client${i}" >> manifest.tmp
